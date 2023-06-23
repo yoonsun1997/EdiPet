@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/reset.css" type="text/css" rel="stylesheet">
+    <link href="./css/style.module.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/slick.css">
+    <link rel="stylesheet" type="text/css" href="./css/slick-theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUITE/fonts/static/woff2/SUITE.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>한달에 한번 특별한 선물 Edi Box</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="./js/slick.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.img_gallery').slick();
+
+            $('.thema_slide').slick({
+                slidesToShow: 8,
+                SlidesToScroll: 1,
+                dots: false,
+                arrows: true,
+                infinite: true,
+                speed: 3500,
+                autoplay: true,
+                autoplaySpeed: 2000
+            });
+
+            $('.menu_list_mobile').on("click",function(){
+                $('.menu_list_mobile').show()
+            })
+
+            $('.btn_chat').on("click",function(){
+                $('.chat_menu').show()
+            });
+            
+            $('.btn_close .fa-xmark').on("click",function(){
+                $('.chat_menu').hide()
+            });
+
+            $('.btn_g').on("click",function(){
+                alert("상담이 접수되었습니다. 빠른 시일내에 연락드리겠습니다 :)")
+            });
+
+            $('.accordion .label').on("click",function(){
+                $('.accodion-body').hide()
+            })
+
+            $('.btn_up').hide(); // 탑 버튼 숨김 	
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
+                        $('.btn_up').fadeIn();
+                    }else {
+                        $('.btn_up').fadeOut();
+                    }
+            });  
+
+            $('.btn_up').click(function() {   
+            $('html, body').animate({
+                scrollTop : 0  
+                }, 1000); 
+                return false;
+            });
+
+            $('.fa-solid.fa-bars').on("click",function(){
+                $('.mobile_gnb')
+                .stop()
+                .slideToggle();
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="menu">
+                    <a data-animation-scroll="true" data-taget=".main_section"><img src="./img/logo.png" alt="logo" class="logo"></a>
+                <nav>
+                    <ul class="menu_list">
+                        <li data-animation-scroll="true" data-taget=".container1"><a>이 달의 에디박스</a></li>
+                        <li data-animation-scroll="true" data-taget=".container2"><a>8만 반려견들의 후기</a></li>
+                        <li data-animation-scroll="true" data-taget=".container3"><a>구성소개</a></li>
+                        <li data-animation-scroll="true" data-taget=".container4"><a>QnA</a></li>
+                        <li data-animation-scroll="true" data-taget=".container5"><a>테마소개</a></li>
+                    </ul>
+                </nav>
+                <nav class="mobile_gnb">
+                    <ul class="menu_list_mobile">
+                        <li data-animation-scroll="true" data-taget=".container1"><a>이 달의 에디박스</a></li>
+                        <li data-animation-scroll="true" data-taget=".container2"><a>8만 반려견들의 후기</a></li>
+                        <li data-animation-scroll="true" data-taget=".container3"><a>구성소개</a></li>
+                        <li data-animation-scroll="true" data-taget=".container4"><a>QnA</a></li>
+                        <li data-animation-scroll="true" data-taget=".container5"><a>테마소개</a></li>
+                    </ul>
+                </nav>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+<div>
+        <button class="btn_chat" onclick="">
+            <i class="fa-solid fa-headset"></i>
+        </button>
+        <div class="chat_menu">
+            <div class="chat_title">
+                <h1>안녕하세요<br>상담이 필요하신가요?</h1>
+                <a class="btn_close" onclick=""><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <p>아래 상담내용과 연락받으실 번호를 적어주세요</p>
+            <p>문의량이 많은 경우, 상담 연결까지 지연될 수 있는 점 미리 양해 부탁 드립니다.
+                감사합니다.</p>
+            <div class="chat_input">
+                <label>전화번호<input type="tel"></label>
+                <label>이 름<input type="text"></label>
+                <label>문의유형
+                    <select>
+                        <option selected disabled>--문의유형선택--</option>
+                        <option value="주문/배송">주문/배송</option>
+                        <option value="취소/환불">취소/환불</option>
+                        <option value="교환/재배송">교환/재배송</option>
+                        <option value="상품정보">상품정보</option>
+                        <option value="주문결제">주문결제</option>
+                        <option value="이용방법">이용방법</option>
+                        <option value="이벤트/회원정보">이벤트/회원정보</option>
+                        <option value="기타/오류">기타/오류</option>
+                    </select>
+                </label>
+                <textarea maxlength="500" placeholder="문의내용을 입력해 주세요. 500자이내"></textarea>
+                <a class="btn_g" onclick="">보내기</a>
+            </div>
+        </div>
+        <a class="btn_up" href="#">
+            <i class="fa-solid fa-arrow-up"></i><br>
+        </a>
+    </div>
+    <main id="main">
+        <section class="main_section">
+            <div>
+                <div class="wrapper">
+                    <h1 class="title">
+                        <i class="fa-solid fa-paw"></i>
+                        Edi Box
+                    </h1>
+                    <h1>나의 하나뿐인 동생 그리고 친구</h1>
+                    <h1>에디펫으로 <span class="pet">반려동물</span>에게</h1>
+                    <h1>행복을 선물해보세요</h1>
+                </div>
+                <div class="img">
+                    <img src="./img/mainDog.png" alt="edipetBox">
+                </div>
+            </div>
+        </section>
+        <section class="down_Section">
+            <p>
+                🐶에디박스 구독 시 1개월 무료체험을 놓치지 말라멍!🐾
+            </p>
+            <div class="down_Section_btn">
+                <a class="btn_b">
+                    지금 시작하기
+                </a>
+                <a class="btn_b">
+                    자세히 알아보기
+                </a>
+            </div>
+        </section>
+        <section class="container1">
+            <div>
+                <div class="month_toy">
+                    <div>
+                        <div class="wrapper">
+                            <p>2023.06</p>
+                            <h1>🥘보글보글 김치찌개🥘</h1>
+                            <p class="caption">
+                                대국민 투표를 통해 국민찌개가 된 김치찌개가
+                                헌팅 토이로 돌아왔다!<br>
+                                나랑 같이 신나게 놀아볼까?
+                            </p>
+                        </div>
+                    </div>
+                    <img src="./img/maintoy.png" alt="may.png" class="main_month_img">
+                    </div>
+                <h1 class="title">📦 이 달의 구성 소개</h1>
+                <div class="this_month_pot hideme" >
+                    <div class="month02">
+                        <img src="./img/may_toy_05.jpg" alt="may.png" class="main_toy05_img">
+                            <p>
+                                Play<br>
+                                국민찌개 헌팅 토이
+                            </p>
+                    </div>
+                    <div class="month03">
+                        <img src="./img/may_toy_01.jpg" alt="may.png" class="main_toy01_img">
+                        <p>
+                            Play<br>
+                            김치젝슨 플레이 토이
+                        </p>
+                    </div>
+                    <div class="month04">
+                        <img src="./img/may_toy_03.jpg" alt="may.png" class="main_toy03_img">
+                        <p>
+                            Life<br>
+                            플리스 티셔츠
+                        </p>
+                    </div>
+                    <div class="month05">
+                        <img src="./img/may_toy_02.jpg" alt="may.png" class="main_toy02_img">
+                        <p>
+                            Life<br>
+                            에디 허니 에센스
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="dog2">
+                <img src="./img/dog02.png" alt="dog_02">
+            </div>
+        </section>
+        <section class="container2">
+            <div>
+                <div class="wrapper">
+                    <h1>Edi Box</h1>
+                    <h1>이미 8만 반려견들이 즐기고 있어요!</h1>
+                    <p>에디펫박스를 신나게 즐긴 반려견들의 생생한 후기입니다🎵</p>
+                </div>
+                <div class="gallery hideme" >
+                    <div class="img_gallery">
+                        <div class="img_01">
+                            <span class="pet01"></span>
+                            <div>
+                                <h1>@_duck99999</h1>
+                                <h2>에디펫박스 생일패키지로 생일파티 했어요.<br>
+                                    풍선에서 케이크까지 다 수제간식이어서 더 안심❤<br>
+                                    물론 덕구가 가장 좋아해 하는게 젤 맘에 듭니다!<br>
+                                    덕구야 생일 축하해!</h2>
+                                    <a href="#">
+                                        에디펫 인스타그램
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="img_02">
+                            <span class="pet02"></span>
+                            <div>
+                                <h1>@moooollllyyyy</h1>
+                                <h2>에디펫박스 몰리도 잘 가지고 놀개!</h2>
+                                <h2>#에티펫박스 #개린이날 #완전_좋아!</h2>
+                                <a href="#">
+                                    에디펫 인스타그램
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img_03">
+                            <span class="pet03"></span>
+                            <div>
+                                <h1>@mungdi02</h1>
+                                <h2>#멍디 오늘도 산책완료~<br>
+                                    에디펫박스 진드기기피제로 해피산책!<br>
+                                    #멍디 #산책조아 #너가_좋으면_나도_좋아
+                                </h2>
+                                <a href="#">
+                                    에디펫 인스타그램
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img_04">
+                            <span class="pet04"></span>
+                            <div>
+                                <h1>@poodle_migkiii</h1>
+                                <h2>밍키는 오늘도 옥수수장난감 덕후...!</h2>
+                                <a href="#">
+                                    에디펫 인스타그램
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img_05">
+                            <span class="pet05"></span>
+                            <div>
+                                <h1>@2021_meeeehee</h1>
+                                <h2>이번 #에디펫박스 구성품이 너무 알차다.<br>
+                                    넘모 귀엽자나...? 미히도 맘에 들오?
+                                </h2>
+                                    <a href="#">
+                                        에디펫 인스타그램
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile_list hideme" >
+                        <div>
+                                <h3>@_duck99999 | 비글(남아,3살)</h3>
+                                <p>에디박스 생일선물로 행복한 생일파티를 보낼 수 있었어요!🎂🥳</p>
+                        </div>
+                        <div>
+                            <h3>@poodle_migkiii | 푸들(여아, 5살)</h3>
+                            <p>저희 밍키가 옥수수장난감을 너무 좋아해서 다행이에요😍</p>
+                        </div>
+                        <div>
+                            <h3>@2021_meeeehee | 포메(남아, 2살)</h3>
+                            <p>이번 구성 너무 알찬 것 같아서 행복해요!💓
+                                늘 믿고 구매합니다!😊
+                            </p>
+                        </div>
+                        <div>
+                            <h3>@moooollllyyyy | 말티즈(여아, 7살)</h3>
+                            <p>몰리와 함께 보내는 #개린이날!!<br>너가 행복하면 나도 좋아💞</p>
+                        </div>
+                        <div>
+                            <h3>@mungdi02 | 진도믹스(남아, 4살)</h3>
+                            <p>에디펫박스에서 나온 산책용품으로 늘 산책하고 있어요!🥾💓</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container3">
+            <div>
+                <div class="wrapper">
+                    <h1>
+                        원하는 구성으로<br>
+                        시작해보세요
+                    </h1>
+                </div>
+                <div class="boxs hideme" >
+                    <div class="box_select b01">
+                        <div>
+                            <div class="title">
+                                <h1>에디박스</h1>
+                                <span class="best"></span>
+                            </div>
+                            <div class="price">
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    첫 달 무료
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    매 달 무료배송
+                                </span>
+                            </div>
+                            <p>다양한 제품을 매달 받아볼 수 있는 에디박스</p>
+                        </div>
+                        <ul class="box_select_list">
+                            <li>
+                                <label>
+                                    <img src="./img/toy01.png" alt="toy01">
+                                    지능발달 장난감
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <img src="./img/toy02.png" alt="toy01">
+                                    행동발달 장난감
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <img src="./img/toy03.png" alt="toy01">
+                                    테마 생활용품
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <img src="./img/toy04.png" alt="toy01">
+                                    미니 간식 꾸러미
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </label>
+                            </li>
+                        </ul>
+                                <div class="amount">
+                                    <h1>월 <span>28,900</span>원</h1>
+                                    <div>
+                                        <a class="btn_b">지금 신청하기</a>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="box_select b02">
+                        <div>
+                            <div class="title">
+                                <h1>에디박스 Lite</h1>
+                            </div>
+                            <div class="price">
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    첫 달 무료
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                    매 달 무료배송
+                                </span>
+                            </div>
+                            <p>
+                                필요한 제품만 받아보실 수 있는<br>
+                                실속형 에디박스 Lite
+                            </p>
+                        </div>
+                        <ul class="box_select_list">
+                            <li>
+                                <label>
+                                    <img src="./img/toy01.png" alt="toy01">
+                                    지능발달 장난감
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <img src="./img/toy04.png" alt="toy01">
+                                    미니 간식 꾸러미
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </label>
+                            </li>
+                        </ul>
+                                <div class="amount">
+                                    <h1>월 <span>20,900</span>원</h1>
+                                    <div>
+                                        <a class="btn_b">지금 신청하기</a>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container3_down"></section>
+        <section class="container4">
+            <div>
+                <div class="wrapper">
+                    <h1>도움이 필요하세요?</h1>
+                </div>
+                <div class="QnA">
+                    <div class="accordion">
+                        <article class="accordion-panel">
+                            <input id="accordion-question" name="accordion" type="radio" checked>
+                            <label for="accordion-question">
+                                Q 정기배송은 처음이에요
+                                <div class="open">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <div class="close">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </div>
+                            </label>
+                            <div class="accordion-body">
+                                <p class="accordion-answer">
+                                    <div class="answer">
+                                        <span>매달 자동 결제로 편리하게 이용할 수 있어요.</span><br>
+                                        처음 한 번만 신청해두면 매달 자동 결제/배송되는 편리한 서비스에요.
+                                    </div>
+                                    <div class="answer">
+                                        <span>변경/해지도 자유롭고 편하게!</span><br>
+                                        서비스 이용 도중 구성품, 결제방식, 반려견 정보 등의 변경이 필요하면 언제든지 카톡으로 말씀해주세요.
+                                    </div>
+                                    <a class="a_sumit" href="#">지금 신청하기 <i class="fa-solid fa-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </article>
+                        <article class="accordion-panel">
+                            <input id="accordion-question_2" name="accordion" type="radio" checked>
+                            <label for="accordion-question_2">
+                                Q 결제 방법이 궁금해요
+                                <div class="open">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <div class="close">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </div>
+                            </label>
+                            <div class="accordion-body">
+                                <p class="accordion-answer">
+                                    <div class="answer">
+                                        <span>내게 맞는 방법으로 결제하고 언제든 변경할 수 있어요</span><br>
+                                        신용카드, 체크카드, 카카오페이 등 원하는 방법으로 결제하세요.<br>
+                                        처음 한 번만 등록해두면 자동으로 결제됩니다. 결제 수단은 언제든 바꿀 수 있어요.
+                                    </div>
+                                    <a class="a_sumit" href="#">지금 신청하기 <i class="fa-solid fa-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </article>
+                        <article class="accordion-panel">
+                            <input id="accordion-question_3" name="accordion" type="radio" checked>
+                            <label for="accordion-question_3">
+                                Q 이번 달 박스만 사고 싶어요
+                                <div class="open">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <div class="close">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </div>
+                            </label>
+                            <div class="accordion-body">
+                                <p class="accordion-answer">
+                                    <div class="answer">
+                                        <span>
+                                            정기배송은 고민된다고요?<br>
+                                            한 번만 사보실 수도 있어요!
+                                        </span><br>
+                                        이번 달 에디박스만 원하시나요?<br>
+                                        물론 구매할 수 있어요!<br>
+                                        에디박스 상품 선택 후, '한 번만 구매'를 선택해 구매해보세요.
+                                    </div>
+                                    <a href="#" class="a_sumit">지금 구매하러 가기 <i class="fa-solid fa-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="accordion">
+                        <article class="accordion-panel">
+                            <input id="accordion-question_4" name="accordion" type="radio" checked>
+                            <label for="accordion-question_4">
+                                Q 우리 아이는 간식을 먹지 않아요
+                                <div class="open">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <div class="close">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </div>
+                            </label>
+                            <div class="accordion-body">
+                                <p class="accordion-answer">
+                                    <div class="answer">
+                                        <span>간식이 없는 에디박스도 준비 되어 있어요</span><br>
+                                        에디박스 신청 시,<br>
+                                        선택 옵션에서 간식은 제외하고 신청하세요.<br>
+                                        더 저렴한 가격으로, 간식 없이 이용 가능합니다.
+                                    </div>
+                                    <a href="#" class="a_sumit">지금 구매하기 <i class="fa-solid fa-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </article>
+                        <article class="accordion-panel">
+                            <input id="accordion-question_5" name="accordion" type="radio" checked>
+                            <label for="accordion-question_5">
+                                Q 내 아이에게도 잘 맞을까요?
+                                <div class="open">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <div class="close">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </div>
+                            </label>
+                            <div class="accordion-body">
+                                <p class="accordion-answer">
+                                    <div class="answer">
+                                        <span>간식이 없는 에디박스도 준비 되어 있어요</span><br>
+                                        에디박스 신청 시,<br>
+                                        선택 옵션에서 간식은 제외하고 신청하세요.<br>
+                                        더 저렴한 가격으로, 간식 없이 이용 가능합니다.
+                                    </div>
+                                    <a class="a_sumit" href="#">지금 구매하기 <i class="fa-solid fa-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </article>
+                        <article class="accordion-panel">
+                            <input id="accordion-question_6" name="accordion" type="radio" checked>
+                            <label for="accordion-question_6">
+                                Q 결제/배송은 어떻게 되나요?
+                                <div class="open">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <div class="close">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </div>
+                            </label>
+                            <div class="accordion-body">
+                                <p class="accordion-answer">
+                                    <div class="answer">
+                                        <span>처음 주문한 베이컨박스 배송</span><br>
+                                        1일~25일 동안 첫 주문일 경우,<br>
+                                        이번 달 베이컨박스가 결제일 바로 다음 날 출발합니다.<br>
+                                        26일~말일 동안 첫 주문일 경우,<br>
+                                        다음 달 베이컨박스가 다음 달 첫 주에 출발합니다.<br>
+                                    </div>
+                                    <div class="answer">
+                                        <span>처음 주문한 베이컨박스 배송</span><br>
+                                        결제:매월 1일 자동 결제<br>
+                                        배송: 매월 첫 주에 배송 출발
+                                    </div>
+                                    <a href="#" class="a_sumit">정기배송 시작하기 <i class="fa-solid fa-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </article>
+                        <article class="accordion-panel">
+                            <input id="accordion-question_7" name="accordion" type="radio" checked>
+                            <label for="accordion-question_7">
+                                Q 믿고 살 만 할까요?
+                                <div class="open">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <div class="close">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </div>
+                            </label>
+                            <div class="accordion-body">
+                                <p class="accordion-answer">
+                                    <div class="answer">
+                                        <span>처음 주문한 에디박스 배송</span><br>
+                                        에디박스는 약 8만 반려견 가정에서 이용한 국내 최초/최고의 정기배송 서비스예요. 자체 제작 상품과 최고 품질의 맞춤 간식으로 반려 가족 라이프를 업그레이드 하세요!
+                                    </div>
+                                    <a href="#" class="a_sumit">정기배송 시작하기 <i class="fa-solid fa-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="container4_btn">
+                    <a class="btn_d hideme" href="#" >궁금한게 더 있어요!</a>
+                </div>
+                <div class="dog3">
+                    <img src="./img/dog03.png" alt="dog_02">
+                </div>
+            </div>
+        </section>
+        <section class="container5">
+            <div>
+                <div class="wrapper">
+                    <h1>
+                        매 달 새로운 즐거움,<br>
+                        새로운 테마 스토리
+                    </h1>
+                </div>
+                <div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}' class="thema_slide hideme" >
+                    <div class="thema">
+                        <img src="./img/thema_00.png" alt="thema_01">
+                        <p>2023.06</p>
+                        <p>국민찌개맛집</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_02.png" alt="thema_02">
+                        <p>2023.05</p>
+                        <p>5월은 개린이날</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_03.png" alt="thema_03">
+                        <p>2023.04</p>
+                        <p>소풍도시락</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_04.png" alt="thema_04">
+                        <p>2023.03</p>
+                        <p>학교 다녀오겠습니다</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_05.png" alt="thema_05">
+                        <p>2023.02</p>
+                        <p>멍슐랭 가이드</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_06.png" alt="thema_06">
+                        <p>2023.01</p>
+                        <p>안녕하세요 토끼입니다만</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_07.png" alt="thema_07">
+                        <p>2022.12</p>
+                        <p>산타할아버지께</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_08.png" alt="thema_08">
+                        <p>2022.11</p>
+                        <p>꼭꼭 숨었다람쥐</p>
+                    </div>
+                </div>
+                <div class="mobile_thema hideme" >
+                    <div class="thema">
+                        <img src="./img/thema_00.png" alt="thema_01">
+                        <p>2023.06</p>
+                        <p>국민찌개맛집</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_02.png" alt="thema_02">
+                        <p>2023.05</p>
+                        <p>5월은 개린이날</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_03.png" alt="thema_03">
+                        <p>2023.04</p>
+                        <p>소풍도시락</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_04.png" alt="thema_04">
+                        <p>2023.03</p>
+                        <p>학교 다녀오겠습니다</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_05.png" alt="thema_05">
+                        <p>2023.02</p>
+                        <p>멍슐랭 가이드</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_06.png" alt="thema_06">
+                        <p>2023.01</p>
+                        <p>
+                            안녕하세요<br>
+                            토끼입니다만
+                        </p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_07.png" alt="thema_07">
+                        <p>2022.12</p>
+                        <p>산타할아버지께</p>
+                    </div>
+                    <div class="thema">
+                        <img src="./img/thema_08.png" alt="thema_08">
+                        <p>2022.11</p>
+                        <p>꼭꼭 숨었다람쥐</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <div class="footer_left">
+                <img src="./img/logo02.png" alt="logo02">
+                <div class="wrapper">
+                    <h2>(주)에디펫</h2>
+                    <p>모든 반려견들이 행복해지는 그 날까지</p>
+                </div>
+                <div class="adress">
+                    <p>서울시 강남구 테헤란로 00번길 00</p>
+                    <p>사업자등록번호: 157-86-00000</p>
+                    <p>통신판매업신고: 2018-서울강남-00000</p>
+                    <p>대표: 김멍멍 | 개인정보책임자: 임멍멍</p>
+                    <p>TEL:1522-0000 | Email:hello@edipet.co</p>
+                </div>
+                <div class="termsUse">
+                    <a href="#">개인정보취급방침</a> |
+                    <a href="#">이용약관</a>
+                </div>
+            </div>
+                <div class="footer_right">
+                    <ul>
+                        <li>채팅 상담</li>
+                        <li>도움말</li>
+                        <li>회사소개</li>
+                        <li>채용 공고</li>
+                    </ul>
+                </div>
+        </div>
+        <h2 class="copy">© 2023 EdiPet Company</h2>
+    </footer>
+</body>
+<script src="./js/scroll.js"></script>
+<script src="./js/rolling.js"></script>
+</html>
