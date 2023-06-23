@@ -1086,7 +1086,7 @@ footer .copy {
     grid-template-rows: 1fr 1fr 1fr 1fr;
   }
   .container2 {
-    height: 100vh;
+    height: 120vh;
   }
   .container2 .gallery {
     display: none;
@@ -1128,7 +1128,7 @@ footer .copy {
     height: 45vh;
   }
   .container3_down {
-    height: 120vh;
+    height: 130vh;
   }
   .container3 .boxs {
     flex-wrap: wrap;
@@ -1153,7 +1153,7 @@ footer .copy {
     padding: 15px 17px !important;
   }
   .container4 {
-    height: 121vh;
+    height: 130vh;
   }
   .container4 > div {
     padding: 70px 0;
@@ -1172,7 +1172,7 @@ footer .copy {
     font-size: 1rem;
   }
   .container5 {
-    height: 130vh;
+    height: 140vh;
   }
   .container5 .slick-slider {
     display: none;
@@ -1190,7 +1190,7 @@ footer .copy {
     width: 100%;
   }
   footer {
-    height: 60vh;
+    height: 70vh;
   }
   footer > div {
     padding: 13% 0;
